@@ -1,0 +1,19 @@
+{
+  "name": "zombie-translation-api",
+  "version": "1.0.0",
+  "description": "API for translating human to zombie",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dominickp/Zombie-TranslAPI.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dominickp/Zombie-TranslAPI/issues"
+  },
+  "homepage": "https://github.com/dominickp/Zombie-TranslAPI#readme"
+}
