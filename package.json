@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/dominickp/Zombie-TranslAPI/issues"
   },
-  "homepage": "https://github.com/dominickp/Zombie-TranslAPI#readme"
+  "homepage": "https://github.com/dominickp/Zombie-TranslAPI#readme",
+  "dependencies": {
+    "express": "^4.13.3"
+  }
 }
