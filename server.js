@@ -1,6 +1,7 @@
 var express = require('express');
 var markdownTransformer = require('./markdownTransformer');
-var buz = require('./Zombify.js');
+var Zombify = require('./Zombify');
+var UnZombify = require('./UnZombify');
 var fs = require('fs');
 
 
@@ -30,12 +31,6 @@ app.get('/', function(req, res){
     handleMarkdown('api_index.md', res);
 });
 
-app.get('/hello', function(req, res){
-
-    res.send('hello');
-    res.end();
-});
-
 app.get('/zombify/:translate', function(req, res){
     var input = req.params.translate;
 
@@ -46,13 +41,24 @@ app.get('/zombify/:translate', function(req, res){
     }
 
     // Translate
-    //var Zombee = new Zombify();
+    var output = {translation: Zombify.zombify(input)};
 
-    //var Zombify = new Zombify();
-    buz.log();
-    var output = buz.zombify(input);
+    res.json(output);
+});
 
-    res.end(output);
+app.get('/unzombify/:translate', function(req, res){
+    var input = req.params.translate;
+
+    // Check for > 1000 characters
+    if(input.length > 1000){
+        res.status(414);
+        res.end();
+    }
+
+    // Translate
+    var output = {translation: UnZombify.unzombify(input)};
+
+    res.json(output);
 });
 
 app.get('/unzombify/:translate', function(req, res){
