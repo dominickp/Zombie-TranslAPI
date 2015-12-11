@@ -7,6 +7,8 @@ var fs = require('fs');
 
 var app = express();
 
+var port = 7000;
+
 var handleMarkdown = function(filename, response){
     response.writeHead(200, {'Content-Type': 'text/html'});
     var file = fs.createReadStream(filename);
@@ -66,3 +68,5 @@ app.get('/unzombify/:translate', function(req, res){
 });
 
 app.listen(7000);
+
+console.log('Visit http://localhost:'+port+'/, yo.');
