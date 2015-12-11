@@ -39,7 +39,7 @@ app.get('/zombify/:translate', function(req, res){
     // Check for > 1000 characters
     if(input.length > 1000){
         res.status(414);
-        res.end();
+        res.json({ "status": 414, "message": "Too many characters." });
     }
 
     // Translate
@@ -54,7 +54,7 @@ app.get('/unzombify/:translate', function(req, res){
     // Check for > 1000 characters
     if(input.length > 1000){
         res.status(414);
-        res.end();
+        res.json({ "status": 414, "message": "Too many characters." });
     }
 
     // Translate
@@ -65,6 +65,12 @@ app.get('/unzombify/:translate', function(req, res){
 
 app.get('/unzombify/:translate', function(req, res){
 
+});
+
+// Not found, needs to be last
+app.get('*', function(req, res){
+    res.status(404);
+    res.json({ "status": 404, "message": "Resource not found." });
 });
 
 app.listen(7000);
