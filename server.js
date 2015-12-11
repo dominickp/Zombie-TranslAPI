@@ -17,7 +17,7 @@ var handleMarkdown = function(filename, response){
 
 // Logging middleware
 app.use(function(req, res, next){
-    console.log((new Date()).toString() + " " + req.method + " " + req.url);
+    console.log((new Date()).toString() + " " + req.method + " " + req.url + " " + req.headers['user-agent']);
     next();
 });
 
@@ -75,4 +75,4 @@ app.get('*', function(req, res){
 
 app.listen(7000);
 
-console.log('Visit http://localhost:'+port+'/, yo.');
+console.log('Server started, visit http://localhost:'+port+'/, yo.');
