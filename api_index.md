@@ -1,6 +1,17 @@
 # Zombie-TransAPI
 API for translating zombie to human.
 
+## Endpoints
+### /zombify/:query
+Converts English to zombie. Query character limit is 1000. Returns a JSON object with a 'translation' property.
+
+Example: [Hello World](http://localhost:7000/zombify/Hello%20World) // {"translation":"HrrllrrrRr WrrrRrRRld"}
+
+### /unzombify/:query
+Converts zombie to English. Query character limit is 1000. Returns a JSON object with a 'translation' property.
+
+Example: [HrrllrrrRr WrrrRrRRld](http://localhost:7000/unzombify/HrrllrrrRr%20WrrrRrRRld) // {"translation":"Hello World"}
+
 ## Translator
 ### Default Translation Rules
 - lower-case "r" at the end of words replaced with "rh".
